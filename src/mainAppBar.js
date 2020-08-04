@@ -134,6 +134,8 @@ export default function MainAppBar() {
         setOpen(false);
     };
 
+
+
     return (
         <div className={classes.root}>
             <IconButton
@@ -200,21 +202,37 @@ export default function MainAppBar() {
                 </div>
                 <Divider />
                 <h3>Career</h3>
+
                 <Divider />
                 <h3>Personal Projects</h3>
-                <Divider />
-                <h3>Company Projects</h3>
+                <List>
+                    {['Team Passion', 'Fynee'].map((text, index) => (
+                        <ListItem button key={text}>
+
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                </List>
                 <Divider />
                 <h3>Learning</h3>
                 <List>
                     {['Swift', 'Flutter', 'React', 'Machine Learning'].map((text, index) => (
+                        <ListItem button key={text}>
+
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                </List>
+                <h3>Investment</h3>
+                <List>
+                    {['Portfolio', 'Study', 'Certificate', 'Column'].map((text, index) => (
                         <ListItem button key={text}>
                             <ListItemIcon>{}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
                 </List>
-
+                <Divider />
             </Drawer>
 
         </div>
