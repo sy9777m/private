@@ -14,7 +14,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import SearchIcon from '@material-ui/icons/Search';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import List from '@material-ui/core/List';
 
@@ -134,8 +133,6 @@ export default function MainAppBar() {
         setOpen(false);
     };
 
-
-
     return (
         <div className={classes.root}>
             <IconButton
@@ -165,25 +162,23 @@ export default function MainAppBar() {
                         <MenuIcon />
                     </IconButton>
 
-                        <Typography variant="h6" className={classes.appBarTitle} noWrap>
-                            Gloria Shelter
-                        </Typography>
+                    <Typography variant="h6" className={classes.appBarTitle} noWrap>
+                        Gloria Shelter
+                    </Typography>
 
-                        <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <SearchIcon />
-                            </div>
-                            <InputBase
-                                placeholder="Search…"
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
+                    <div className={classes.search}>
+                        <div className={classes.searchIcon}>
+                            <SearchIcon />
                         </div>
-
-
+                        <InputBase
+                            placeholder="Search…"
+                            classes={{
+                                root: classes.inputRoot,
+                                input: classes.inputInput,
+                            }}
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
+                    </div>
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -201,14 +196,20 @@ export default function MainAppBar() {
                         </IconButton>
                 </div>
                 <Divider />
-                <h3>Career</h3>
+                <h3>Profile</h3>
+                <List>
+                    {['resume'].map((text, index) => (
+                        <ListItem button key={text}>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                </List>
 
                 <Divider />
                 <h3>Personal Projects</h3>
                 <List>
                     {['Team Passion', 'Fynee'].map((text, index) => (
                         <ListItem button key={text}>
-
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
@@ -223,16 +224,15 @@ export default function MainAppBar() {
                         </ListItem>
                     ))}
                 </List>
+                <Divider />
                 <h3>Investment</h3>
                 <List>
                     {['Portfolio', 'Study', 'Certificate', 'Column'].map((text, index) => (
                         <ListItem button key={text}>
-                            <ListItemIcon>{}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
                 </List>
-                <Divider />
             </Drawer>
 
         </div>
